@@ -13,7 +13,7 @@
 var primeFactors = [];
 
 function primeID(num) {
-	for (i = 0; i <= 1000; i++) {
+    for (i = 0; i <= 1000; i++) {
 		if (num % i === 0) {
 			primeFactors.push(i);
 		}
@@ -22,8 +22,14 @@ function primeID(num) {
 
 primeID(600851475143);
 
-console.log(primeFactors);
 
 
+//OK, now need to identify the largest number in that array. Will probably search for an array method that does that.
+//mdn: The Math.max() function returns the largest of zero or more numbers.
+
+function maxOfArray(array) {
+	console.log(Math.max.apply(null, array));
+}
 
 
+maxOfArray(primeFactors);
