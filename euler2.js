@@ -6,58 +6,27 @@
 
 // By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 
-//Step 1: create array of Fibonacci numbers up to 4 million.
 
-var fibArray = [1, 2];
-var a = 1;
+var a = 1;                  
 var b = 2;
+var c = 0;
+var sum = 0;
+var evens = [2]  // array of even terms from Fibonacci sequence, starting with the first even term, 2.
 
-while (b <= 4000000) {
+while ((a+b) < 4000000) {
 	c = a + b;
-	fibArray.push(c);
+	if (c % 2 == 0) {
+		evens.push(c);
+	}
 	a = b;
 	b = c;
 }
 
-return fibArray;
 
-// Step 2: add up all the even numbers in the array.
-// Need sum variable.
-// Need to ignore cells with odd numbers, or remove them from array.
-//pseudocode:
-// var total = 0;
-//function evenSum (fibArray) {
-// 	for (length of array) {
-// 		if (number is odd) {
-// 			change number to 0 or undefined;
-// 		} else (number is even) {
-// 			leave it alone
-// 		} 
-// 	return fibArray;
-// 	total = total + fibArray[i];
-// 	}
-
-// }
-
-var total = 0;
-
-function evenSum(fibArray) {
-	for (i = 0; i <= fibArray.length; i++) {
-		if (fibArray[i] % 2 != 0) {
-			fibArray[i] = undefined;
-			return fibArray;
-		}
-	total = total + fibArray[i];
-	}
-return fibArray;	
+for (i = 0; i < evens.length; i++) {
+	sum += evens[i];
 }
 
-evenSum(fibArray);
-
-console.log(total);
-
-//this doesn't seem to be working, so I will try seperating out into two functions in next version.
-
-
+console.log("The sum of the even-valued numbers is " + sum + ".");
 
 
